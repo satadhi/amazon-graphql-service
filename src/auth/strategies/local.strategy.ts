@@ -13,6 +13,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
 
     async validate(email: string, password: string) {
         try {
+
+            // the value of the return is stored in user key i.e. req.user
             return await this.usersService.verifyUser(email, password);
         } catch (err) {
             throw new UnauthorizedException(err);

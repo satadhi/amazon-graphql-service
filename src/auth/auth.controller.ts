@@ -10,9 +10,9 @@ export class AuthController {
   constructor(private readonly authService: AuthService) { }
 
   @Post('login')
-  @UseGuards(LocalAuthGuard)
+  @UseGuards(LocalAuthGuard) // this guys extracts the user into and sets it to req.user
   async login(
-    @CurrentUser() user: User,
+    @CurrentUser() user: User, // this guys will again extract there user from the req.user, and pass it as a simple param
 
     // When you use the @Res() decorator in a method parameter, NestJS injects the Response object from Express.js
     // into that parameter.This object allows you to control the HTTP response sent to the client, such as setting
